@@ -3,6 +3,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "Starbucks.h"
+#include <vector>
+
 
 using namespace ci;
 using namespace ci::app;
@@ -15,24 +18,38 @@ class HW04_gonzalrdApp : public AppBasic {
 	void update();
 	void draw();
 	void read();
+	
+
 };
 
 
 void HW04_gonzalrdApp::read()
 {
+	vector<Entry*> entries(10);
+	
 	ifstream in ("Starbucks_2006.csv");
 
 	string line;
+	double x;
+	double y;
 
+	for(int i = 0; i<=5; i++){
 	getline(in , line, ',');
+	in.get();
+	in >> x;
+	in.get();
+	in >> y;
 
-
-	//in.close();
-
-	cout << line << endl;
+	Entry* newEntry = new Entry();
 	
+	newEntry->identifier = line;
+	newEntry->x = x;
+	newEntry->y = y;
 	
-	system("PAUSE"); 
+	entries[i] = newEntry;
+	
+
+	}
 	
 }
 
