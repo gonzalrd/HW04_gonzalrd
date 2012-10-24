@@ -8,7 +8,7 @@ class brinkmwjStarbucks : public Starbucks {
 
 
 	
-	virtual void build(Entry* c, int n){};
+	virtual void build(Entry* c, int n){}
 	
 
 	virtual Entry* getNearest(double x, double y){}

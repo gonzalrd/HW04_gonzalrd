@@ -1,5 +1,8 @@
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace ci;
 using namespace ci::app;
@@ -11,10 +14,33 @@ class HW04_gonzalrdApp : public AppBasic {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
+	void read();
 };
+
+
+void HW04_gonzalrdApp::read()
+{
+	ifstream in ("Starbucks_2006.csv");
+
+	string line;
+
+	getline(in , line, ',');
+
+
+	//in.close();
+
+	cout << line << endl;
+	
+	
+	system("PAUSE"); 
+	
+}
+
 
 void HW04_gonzalrdApp::setup()
 {
+
+	read();
 }
 
 void HW04_gonzalrdApp::mouseDown( MouseEvent event )
