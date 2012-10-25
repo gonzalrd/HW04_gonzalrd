@@ -17,15 +17,14 @@ class HW04_gonzalrdApp : public AppBasic {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
-	void read();
+	Entry*read();
 	
 
 };
 
-
-void HW04_gonzalrdApp::read()
+Entry* HW04_gonzalrdApp::read()
 {
-	vector<Entry*> entries(10);
+	Entry* entries = new Entry[10];
 	
 	ifstream in ("Starbucks_2006.csv");
 
@@ -33,23 +32,18 @@ void HW04_gonzalrdApp::read()
 	double x;
 	double y;
 
-	for(int i = 0; i<=5; i++){
+	for(int i = 0; i<=9; i++){
 	getline(in , line, ',');
 	in.get();
 	in >> x;
 	in.get();
 	in >> y;
 
-	Entry* newEntry = new Entry();
-	
-	newEntry->identifier = line;
-	newEntry->x = x;
-	newEntry->y = y;
-	
-	entries[i] = newEntry;
-	
+	entries[i] =  
 
 	}
+
+	return entries;
 	
 }
 
@@ -58,6 +52,7 @@ void HW04_gonzalrdApp::setup()
 {
 
 	read();
+	
 }
 
 void HW04_gonzalrdApp::mouseDown( MouseEvent event )
