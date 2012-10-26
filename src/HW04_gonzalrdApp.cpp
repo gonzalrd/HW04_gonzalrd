@@ -27,15 +27,18 @@ class HW04_gonzalrdApp : public AppBasic {
 
 Entry* HW04_gonzalrdApp::read()
 {
-	Entry* entries = new Entry[10];
+	Entry* entries = new Entry[7656];
 	
 	ifstream in ("Starbucks_2006.csv");
 
 	string line;
 	double x;
 	double y;
-
-	for(int i = 0; i<=9; i++){
+	int i = 0;
+	
+	
+	while(!in.eof()){
+	
 	getline(in , line, ',');
 	in.get();
 	in >> x;
@@ -46,9 +49,10 @@ Entry* HW04_gonzalrdApp::read()
 	entries[i].x =x;
 	entries[i].y = y;
 
-	}
+	i++;
 	
-
+	
+}
 
 	return entries;
 	
@@ -57,11 +61,11 @@ Entry* HW04_gonzalrdApp::read()
 
 void HW04_gonzalrdApp::setup()
 {
-	//gonzalrdStarbucks star;
+	gonzalrdStarbucks star;
 
 	Entry* mylocs = read();
 
-	//star.build(read(),10);
+	star.build(mylocs,10);
 
 	
 }
