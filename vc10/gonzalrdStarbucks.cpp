@@ -24,7 +24,7 @@ int size;
 
 Entry*  gonzalrdStarbucks::getNearest(double x, double y){
 
-		Entry Best = entries[0];
+	Entry *Best = new Entry();
 		double smallestDistance = sqrt(abs(entries[0].x-x) + abs(entries[0].y-y));
 
 		for(int i=1; i<size; i++){
@@ -32,13 +32,15 @@ Entry*  gonzalrdStarbucks::getNearest(double x, double y){
 			double candidateDis = sqrt(abs(entries[i].x-x) + abs(entries[i].y-y));
 
 			if(candidateDis < smallestDistance){
-				Best = entries[i];
+				Best->identifier = entries[i].identifier;
+				Best->x = entries[i].x;
+				Best->y = entries[i].y;
 				smallestDistance = candidateDis;
 			}
 
 		}
 
-
+		return Best;
 
 }
 
