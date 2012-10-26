@@ -21,13 +21,14 @@ class HW04_gonzalrdApp : public AppBasic {
 	void update();
 	void draw();
 	Entry*read();
+	int size = 7655;
 	
 
 };
 
 Entry* HW04_gonzalrdApp::read()
 {
-	Entry* entries = new Entry[7656];
+	Entry* entries = new Entry[size];
 	
 	ifstream in ("Starbucks_2006.csv");
 
@@ -65,7 +66,13 @@ void HW04_gonzalrdApp::setup()
 
 	Entry* mylocs = read();
 
-	star.build(mylocs,10);
+	star.build(mylocs,size);
+
+	Entry* BEST = star.getNearest(.534, .345);
+
+	cout << BEST->identifier;
+
+	system("PAUSE");
 
 	
 }
