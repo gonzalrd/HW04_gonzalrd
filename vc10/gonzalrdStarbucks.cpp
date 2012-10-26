@@ -1,10 +1,10 @@
 #pragma once
 #include "gonzalrdStarbucks.h"
 
-
+int size;
 	
  void gonzalrdStarbucks::build(Entry* c, int n){
-	
+		size =  n;
 	 entries = new Entry[n];
 
 	 entries[1] = c[1]; //move over the first
@@ -20,11 +20,27 @@
 	
 	}
 
+ //implementation of a linear search
+
 Entry*  gonzalrdStarbucks::getNearest(double x, double y){
+
+		Entry Best = entries[0];
+		double smallestDistance = sqrt(abs(entries[0].x-x) + abs(entries[0].y-y));
+
+		for(int i=1; i<size; i++){
+
+			double candidateDis = sqrt(abs(entries[i].x-x) + abs(entries[i].y-y));
+
+			if(candidateDis < smallestDistance){
+				Best = entries[i];
+				smallestDistance = candidateDis;
+			}
+
+		}
+
 
 
 }
-
 
 
 

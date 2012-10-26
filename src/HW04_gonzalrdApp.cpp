@@ -1,15 +1,18 @@
+
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "Starbucks.h"
-#include <vector>
+#include "../vc10/gonzalrdStarbucks.h"
+
 
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+
 
 class HW04_gonzalrdApp : public AppBasic {
   public:
@@ -39,9 +42,13 @@ Entry* HW04_gonzalrdApp::read()
 	in.get();
 	in >> y;
 
-	entries[i] =  
+	entries[i].identifier = line;
+	entries[i].x =x;
+	entries[i].y = y;
 
 	}
+	
+
 
 	return entries;
 	
@@ -50,8 +57,12 @@ Entry* HW04_gonzalrdApp::read()
 
 void HW04_gonzalrdApp::setup()
 {
+	//gonzalrdStarbucks star;
 
-	read();
+	Entry* mylocs = read();
+
+	//star.build(read(),10);
+
 	
 }
 
@@ -61,10 +72,13 @@ void HW04_gonzalrdApp::mouseDown( MouseEvent event )
 
 void HW04_gonzalrdApp::update()
 {
+	
 }
 
 void HW04_gonzalrdApp::draw()
 {
+
+	
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) ); 
 }

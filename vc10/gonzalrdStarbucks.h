@@ -22,11 +22,11 @@ public:
 
 class gonzalrdStarbucks : public Starbucks {
 /* member variables and methods declared here */
-
+public:
 	virtual void build(Entry* c, int n);
 	virtual Entry* getNearest(double x, double y);
-public:
 	Entry* entries;
+	
 
 
 };
